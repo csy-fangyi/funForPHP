@@ -12,14 +12,14 @@ function input_parser($input) {
     foreach (explode("\n", $input) as $line) {
         $fields = explode(';', $line);
         $id = array_shift($fields);
-
-        yield $id => $fields;
+        yield $id => [array_shift($fields) => $fields];
     }
 }
 
-foreach (input_parser($input) as $id => $fields) {
-    echo "$id:\n";
-    echo "    $fields[0]\n";
-    echo "    $fields[1]\n";
+$generate = input_parser($input);
+
+foreach ($generate as $key => $value) {
+    echo $key . ' => ' . json_encode($value) . PHP_EOL;
 }
+
 ?>
