@@ -9,5 +9,3 @@ class ICP
         return json_encode(HttpUtils::doGetA($url), JSON_UNESCAPED_SLASHES);
     }
 }
-
-print_r(json_decode(ICP::queryICP('www.chuangcache.com'), true));
