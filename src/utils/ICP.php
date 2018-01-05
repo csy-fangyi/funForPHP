@@ -6,8 +6,8 @@ class ICP
 {
     public static function queryICP($domain) {
         $url = 'http://www.sojson.com/api/beian/' . $domain;
-        return HttpUtils::doGetA($url);
+        return json_encode(HttpUtils::doGetA($url), JSON_UNESCAPED_SLASHES);
     }
 }
 
-echo json_encode(ICP::queryICP('www.chuangcache.com')) . PHP_EOL;
+print_r(json_decode(ICP::queryICP('www.chuangcache.com'), true));
