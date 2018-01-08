@@ -31,10 +31,9 @@ closureFunc2();
 echo '----closureFunc3----' . PHP_EOL;
 function closureFunc3() {
     $num = 3;
-    $func = function () use ($num) {
+    return function () use ($num) {
         echo $num . PHP_EOL;
     };
-    return $func;
 }
 
 $func = closureFunc3();
@@ -43,10 +42,9 @@ $func();
 echo '----closureFunc4----' . PHP_EOL;
 function closureFunc4() {
     $num = 4;
-    $func = function ($str) use ($num) {
+    return function ($str) use ($num) {
         echo $num . PHP_EOL . $str . PHP_EOL;
     };
-    return $func;
 }
 
 $func = closureFunc4();
@@ -75,3 +73,7 @@ function callFunc($func) {
 callFunc(function ($str) {
     echo $str . PHP_EOL;
 });
+
+echo preg_replace_callback('~-([a-z])~', function ($match) {
+        return strtoupper($match[1]);
+    }, 'hello-world') . PHP_EOL;
