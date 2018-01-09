@@ -32,14 +32,13 @@ abstract class FactoryAbstract
 
 abstract class Factory extends FactoryAbstract
 {
-
-    final public static function getInstance() {
-        return parent::getInstance();
-    }
-
-    final public static function removeInstance() {
-        parent::removeInstance();
-    }
+//    final public static function getInstance() {
+//        return parent::getInstance();
+//    }
+//
+//    final public static function removeInstance() {
+//        parent::removeInstance();
+//    }
 }
 
 // using:
@@ -53,8 +52,8 @@ class SecondProduct extends FirstProduct
 }
 
 FirstProduct::getInstance()->a[] = 1;
-SecondProduct::getInstance()->a[] = 2;
 FirstProduct::getInstance()->a[] = 3;
+SecondProduct::getInstance()->a[] = 2;
 SecondProduct::getInstance()->a[] = 4;
 
 var_dump(FirstProduct::getInstance()->a);

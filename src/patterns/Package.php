@@ -24,3 +24,6 @@ class Package
 
 Package::set('name', 'Package name');
 var_dump(Package::get('name'));
+
+Package::set('name1', 'Package12 name');
+var_dump(Package::get('name1'));
